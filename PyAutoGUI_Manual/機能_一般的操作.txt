@@ -1,0 +1,68 @@
+
+■General Functions
+
+・マウスの位置の把握
+>>> pyautogui.position()  # current mouse x and y
+・スクリーンサイズの把握
+>>>pyautogui.size()  # current screen resolution width and height
+・指定のXY座標が画面内に存在するか、bool値を返す
+>>> pyautogui.onScreen(x, y)  # True if x & y are within the screen.
+
+■Fail-Safe（安定した動作のために）
+・pgの各実行ごとに2.5秒の間隔をあける
+>>> pyautogui.PAUSE = 2.5
+・FAILSAFEをTrueにしておくと、マウスを画面左上に持ってくと例外が発生し処理が止まる
+>>> pyautogui.FAILSAFE = True
+
+■Mouse Functions（マウス操作系）
+・num_seconds秒かけて、マウスをXY座標に移動
+>>> pyautogui.moveTo(x, y, duration=num_seconds)
+・マウスを現在の位置からXY座標分だけ移動
+>>> pyautogui.moveRel(xOffset, yOffset, duration=num_seconds)
+・num_seconds秒かけて、XY座標までドラック
+>>> pyautogui.dragTo(x, y, duration=num_seconds)  # drag mouse to XY
+・num_seconds秒かけて、現在のマウスの位置から相対的にXY座標分移動
+>>> pyautogui.dragRel(xOffset, yOffset, duration=num_seconds)
+・クリック！
+>>> pyautogui.click(x=moveToX, y=moveToY, clicks=num_of_clicks, interval=secs_between_clicks, button='left')
+・クリックには便利な関数があるいずれも指定したXY座標に移動してから実行される
+>>> pyautogui.rightClick(x=moveToX, y=moveToY)
+>>> pyautogui.middleClick(x=moveToX, y=moveToY)
+>>> pyautogui.doubleClick(x=moveToX, y=moveToY)
+>>> pyautogui.tripleClick(x=moveToX, y=moveToY)
+・スクロール（以下3つ要確認）
+>>> pyautogui.scroll(amount_to_scroll, x=moveToX, y=moveToY)
+>>> pyautogui.mouseDown(x=moveToX, y=moveToY, button='left')
+>>> pyautogui.mouseUp(x=moveToX, y=moveToY, button='left')
+・テキスト入力。インターバルは文字を入力する間隔
+>>> pyautogui.typewrite('Hello world!\n', interval=secs_between_keys)
+・複数の操作を一度に入力することも可能（※pyautogui.KEYBOARD_KEYSで登録されているキーを確認できる）
+>>> pyautogui.typewrite(['a', 'b', 'c', 'left', 'backspace', 'enter', 'f1'], interval=secs_between_keys)
+・同時に複数のキーを入力
+>>> pyautogui.hotkey('ctrl', 'c')  # ctrl-c to copy
+>>> pyautogui.hotkey('ctrl', 'v')  # ctrl-v to paste
+・キーを押しっぱなしにする→離す
+>>> pyautogui.keyDown(key_name)
+>>> pyautogui.keyUp(key_name)
+
+■Message Box Functions
+・アラート（メッセージの表示のみ）
+>>> pyautogui.alert('This displays some text with an OK button.')
+・確認（OK or Chancel）
+>>> pyautogui.confirm('This displays text and has an OK and Cancel button.')
+・promptに入力
+>>> pyautogui.prompt('This lets the user type in a string and press OK.')
+
+■ScreenShot Functions（特に追加モジュール必要なし）
+・スクリーンショットする→カレントディレクトリに出力
+>>> pyautogui.screenshot('foo.png')
+・画像と同じ部分をスクリーン上の座標で返す
+>>> pyautogui.locateOnScreen('looksLikeThis.png')
+・全部検出
+>>> for i in pyautogui.locateAllOnScreen('looksLikeThis.png')
+・画像の中心を返す
+>>> pyautogui.locateCenterOnScreen('looksLikeThis.png')
+
+■参考リンク
+〇公式ドキュメント General Functions
+https://pyautogui.readthedocs.io/en/latest/quickstart.html#general-functions

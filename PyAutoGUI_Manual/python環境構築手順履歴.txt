@@ -1,0 +1,47 @@
+[目的]
+PyAutoGuiを仮想環境上で動作させる。
+
+【定義】
+
+【ファイルの格納場所（仮）】
+適切な場所で管理する
+
+
+【操作】
+とりあえずデスクトップに移動
+
+1.Python(3.9.6)のインストール（参考リンクa）※add pathにチェック入れる
+2.コマンドプロンプトを開いて仮想環境を構築
+	xxxxxフォルダを作成→移動
+	仮想環境を構築（python -m venv yyyyy）
+	仮想環境への切り替え（yyyyy\Scripts\activate.bat）
+3.モジュールのインストール（参考リンクbの内容+エラー対応）
+	pip install pyautogui
+	pip install opencv_python
+	#画像認識機能を使う際にpillowがないエラーが発生するので以下の対応（参考リンクc）で回避
+	pip install Pillow
+	pip install Pillow --upgrade
+	(追記：8/11)pyperclip, scrot
+	
+4.動作確認
+	→test.pyの実行
+
+5.環境設定ファイルの書き出し（参考リンクd）
+	pip freeze > requirements.txt
+
+
+[参考リンク]
+a.)Pythonダウンロードリンク
+https://www.python.org/downloads/release/python-396/
+
+b.)坂本さんより紹介いただいたPyAutoGuiの紹介記事↓
+https://rightcode.co.jp/blog/information-technology/python-automate-human-operations-with-pyautogui-image-recognition
+
+c.)PyAutoGUIのエラー↓
+https://qiita.com/YoshikiIto/items/15d8937fcfcf2d7aa9fb
+
+d.)requirement.txtの作り方とその意味↓
+https://note.nkmk.me/python-pip-install-requirements/
+
+[memo]
+画像認識機能の際に、confidenceの値の調整が面倒。低すぎても高すぎてもダメ。0.4程度で成功。

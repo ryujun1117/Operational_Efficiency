@@ -1,0 +1,10 @@
+version: "3.2"
+services:
+  python-gui:
+    build: .
+    restart: always
+    tty: true
+    volumes:
+      - C:\Users\ryuichi1117\Desktop\tmp_GUI\opt:/root/opt
+    environment:
+      - DISPLAY=192.168.43.6:1.0

@@ -1,0 +1,66 @@
+■Keyboard Control Functions
+
+■The write() Function
+・書き込む（インターバルは一文字入力当たりの間隔）※write関数ではキーの入力はできないShiftやF1など
+>>> pyautogui.write('Hello world!', interval=0.25)  # prints out "Hello world!" with a quarter second delay after each character
+
+■The press(), keyDown(), and keyUp() Functions
+・press関数でキーを押す
+>>> pyautogui.press('enter')  # press the Enter key
+>>> pyautogui.press('f1')     # press the F1 key
+>>> pyautogui.press('left')   # press the left arrow key
+
+・keyDown関数で押し続ける　keyUp関数で離す
+>>> pyautogui.keyDown('shift')  # hold down the shift key
+>>> pyautogui.press('left')     # press the left arrow key
+>>> pyautogui.press('left')     # press the left arrow key
+>>> pyautogui.press('left')     # press the left arrow key
+>>> pyautogui.keyUp('shift')    # release the shift key
+
+↑レフトキー3回連続で押す動作は以下のようにも書ける
+
+>>> pyautogui.press(['left', 'left', 'left'])
+>>> pyautogui.press('left', presses=3)
+
+■The hotkey() Function
+・複数のキーを同時に押す
+>>> pyautogui.hotkey('ctrl', 'shift', 'esc')
+
+上のコードは以下と同じ
+>>> pyautogui.keyDown('ctrl')
+>>> pyautogui.keyDown('shift')
+>>> pyautogui.keyDown('esc')
+>>> pyautogui.keyUp('esc')
+>>> pyautogui.keyUp('shift')
+>>> pyautogui.keyUp('ctrl')
+
+■KEYBOARD_KEYS
+press(), keyDown(), keyUp(),hotkey()関数で使えるキーの一覧は以下
+
+***************************************************************
+['\t', '\n', '\r', ' ', '!', '"', '#', '$', '%', '&', "'", '(',
+')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7',
+'8', '9', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`',
+'a', 'b', 'c', 'd', 'e','f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~',
+'accept', 'add', 'alt', 'altleft', 'altright', 'apps', 'backspace',
+'browserback', 'browserfavorites', 'browserforward', 'browserhome',
+'browserrefresh', 'browsersearch', 'browserstop', 'capslock', 'clear',
+'convert', 'ctrl', 'ctrlleft', 'ctrlright', 'decimal', 'del', 'delete',
+'divide', 'down', 'end', 'enter', 'esc', 'escape', 'execute', 'f1', 'f10',
+'f11', 'f12', 'f13', 'f14', 'f15', 'f16', 'f17', 'f18', 'f19', 'f2', 'f20',
+'f21', 'f22', 'f23', 'f24', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9',
+'final', 'fn', 'hanguel', 'hangul', 'hanja', 'help', 'home', 'insert', 'junja',
+'kana', 'kanji', 'launchapp1', 'launchapp2', 'launchmail',
+'launchmediaselect', 'left', 'modechange', 'multiply', 'nexttrack',
+'nonconvert', 'num0', 'num1', 'num2', 'num3', 'num4', 'num5', 'num6',
+'num7', 'num8', 'num9', 'numlock', 'pagedown', 'pageup', 'pause', 'pgdn',
+'pgup', 'playpause', 'prevtrack', 'print', 'printscreen', 'prntscrn',
+'prtsc', 'prtscr', 'return', 'right', 'scrolllock', 'select', 'separator',
+'shift', 'shiftleft', 'shiftright', 'sleep', 'space', 'stop', 'subtract', 'tab',
+'up', 'volumedown', 'volumemute', 'volumeup', 'win', 'winleft', 'winright', 'yen',
+'command', 'option', 'optionleft', 'optionright']
+***************************************************************
+
+
+

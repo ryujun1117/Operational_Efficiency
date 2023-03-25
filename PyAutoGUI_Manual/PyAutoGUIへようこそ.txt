@@ -1,0 +1,56 @@
+
+■PyAutoGUI
+動作OS：Windows, macOS, Linux
+バージョン：Python2, 3
+
+■インストール方法
+pip install pyautogui
+
+■PyAutoGUIでできること(特徴)
+・マウスを動かしたり、クリック、タイピングが可能
+・文字を入力できる
+・スクリーンショットが取れる
+・ウインドウ操作（移動・サイズ変更・最小化・最大化・選択）ができる（今のところwindowsのみ）
+・ディスプレイにメッセージ（アラート）を表示できる
+
+■コード例
+
+>>> import pyautogui
+
+>>> screenWidth, screenHeight = pyautogui.size() # メインモニタのサイズを取得
+
+>>> currentMouseX, currentMouseY = pyautogui.position() # マウスの置いてある位置のXY座標を取得
+
+>>> pyautogui.moveTo(100, 150) # マウスを100×150の位置へ移動させる
+
+>>> pyautogui.click()          # マウスをクリック
+>>> pyautogui.click(100, 200)  # マウスを指定のXY座標に移動させてクリック
+>>> pyautogui.click('button.png') # 指定した画像を見つけてクリック→要確認
+
+>>> pyautogui.move(0, 10)      # マウスを10px下にずらす
+>>> pyautogui.doubleClick()    # マウスをダブルクリック
+>>> pyautogui.moveTo(500, 500, duration=2, tween=pyautogui.easeInOutQuad)  #？？？？？.
+
+>>> pyautogui.write('Hello world!', interval=0.25)  # Hello world!を0.25秒の間隔をあけて打つ
+>>> pyautogui.press('esc')     # Escキーを押す
+
+>>> pyautogui.keyDown('shift') # シフトキーを押したままにする
+>>> pyautogui.press(['left', 'left', 'left', 'left']) # 左矢印を4回押す（Shiftキーを押した状態で）
+>>> pyautogui.keyUp('shift')   # シフトキーを離す
+
+>>> pyautogui.hotkey('ctrl', 'c') # キーの同時押し。これはctrl+cでコピー
+
+>>> pyautogui.alert('This is the message to display.') # 入力したテキストをアラートとして表示
+
+■FAQ：よくある質問
+・PyAutoGUIはアンドロイドやiOSでも使えるか→使えない
+・マルチモニターで動くか→動かない（メインのモニタだけ）
+・OCR使えるか→今後できるようになるかも（なった可能性）
+・キーロギングや、押したキーの検知はできるか→できない
+
+■参考リンク
+〇Welcome to PyAutoGUI's documentation（公式ドキュメント）
+https://pyautogui.readthedocs.io/en/latest/
+
+〇動画：Bot programmed in Python to play Sushi Go Round（画像認識を使って画面上の注文を確認→作る）
+https://www.youtube.com/watch?v=lfk_T6VKhTE

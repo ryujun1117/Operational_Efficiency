@@ -1,0 +1,17 @@
+■Message Box Functions
+
+■The Alert() Function
+・画面にアラートを表示
+>>> alert(text='', title='', button='OK')
+
+■The confirm() Function
+・OKを押す必要があるタイプの出力
+>>> confirm(text='', title='', buttons=['OK', 'Cancel'])
+
+■The prompt() Function
+戻り値がプロンプトに入力されるタイプ
+>>> prompt(text='', title='' , default='')
+
+■The password() Function
+・パスワードが求められるやつ
+>>> password(text='', title='', default='', mask='*')
