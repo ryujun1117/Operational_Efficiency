@@ -1,0 +1,38 @@
+#Docker-composeはコンテナと周辺環境の作成を行う
+#バージョンを書く
+# version: '3' 
+# #コンテナに関する定義をする
+# services: 
+#   #コンテナ名
+#   python3: 
+#     #コンテナが停止した時の再試行ポリシーの設定
+#     #always → 必ず再起動する
+#     restart: always 
+#     #Dockerfileの存在するディレクトリを指定
+#     build: . 
+#     #起動するコンテナ名を明示的に設定する
+#     container_name: 'dash_streamlit_env' 
+#     #ポートのマッピングを設定する
+#     ports: 
+#       - "8001:8001" 
+#     #コンテナ実行時の作業ディレクトリを指定する
+#     working_dir: '/root/' 
+#     #コンテナに擬似TTYを割り当てる
+#     tty: true 
+#     #コンテナ内にマウントするボリュームを指定する
+#     volumes: 
+#       - ./opt:/root/opt
+
+
+version: '3'
+services:
+  python3:
+    restart: always
+    build: .
+    container_name: 'python3'
+    ports: 
+      - "8001:8001" 
+    working_dir: '/root/'
+    tty: true
+    volumes:
+      - ./opt:/root/opt
